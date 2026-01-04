@@ -1,0 +1,56 @@
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+
+export function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white py-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 className="mb-4">Company</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4">Services</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-white transition-colors">Web Development</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Design</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Consulting</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4">Resources</h3>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4">Follow Us</h3>
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <p>&copy; 2025 Company Name. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
