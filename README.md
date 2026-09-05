@@ -1,12 +1,50 @@
-[README.md](https://github.com/user-attachments/files/24421908/README.md)
+# IT Forum
 
-  # IT Forum
+Сайт IT-мектебі: сабақ кестесі, олимпиадалар, жаңалықтар, үздік оқушылар рейтингі,
+форум және админ-панель.
 
-  This is a code bundle for IT Forum. The original project is available at https://www.figma.com/design/BM5zVyJlu9xSj7b17zOmrL/IT-Forum.
+Stack: React 18 + TypeScript + Vite 6 + Tailwind CSS v4 + Radix UI + Supabase.
 
-  ## Running the code
+## Іске қосу / Запуск
 
-  Run `npm i` to install the dependencies.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
-  Run `npm run dev` to start the development server.
-  
+Прод-сборка:
+
+```bash
+npm run build    # tsc --noEmit + vite build -> build/
+npm run preview
+```
+
+## Supabase
+
+Ключи по умолчанию зашиты в `src/supabaseClient.ts`. Чтобы указать свой проект,
+скопируйте `.env.example` в `.env`:
+
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Приложение читает таблицы `news`, `olympiads`, `schedule_pdfs`, `top_students`,
+`forum_posts` и подписывается на их realtime-изменения. Если таблица недоступна,
+соответствующий раздел просто показывает пустое состояние — приложение не падает.
+
+## Структура
+
+```
+index.html              точка входа Vite
+vite.config.ts          конфиг сборки (alias @ -> src)
+src/
+  main.tsx              монтирование React
+  App.tsx               роутинг по страницам + загрузка данных из Supabase
+  supabaseClient.ts     клиент Supabase
+  components/           страницы приложения (Header, Navigation, ITLines, ...)
+  components/ui/        shadcn/ui компоненты на Radix
+  styles/globals.css    Tailwind v4 + токены темы
+supabase/functions/     Deno edge function (не входит в сборку фронтенда)
+docs/legacy/            неиспользуемые компоненты из исходного шаблона
+```
