@@ -54,13 +54,10 @@ docs/legacy/            неиспользуемые компоненты из �
 В репозитории есть workflow `.github/workflows/deploy.yml`, который собирает
 приложение и публикует его на GitHub Pages.
 
-Чтобы включить (один раз):
+Workflow сам включает Pages (`configure-pages` с `enablement: true`), так что
+никакой ручной настройки в Settings не нужно — достаточно push в `main`.
 
-1. Settings → Pages → **Source: GitHub Actions**.
-2. Смёрджить эту ветку в `main` (или запустить workflow вручную:
-   Actions → Deploy to GitHub Pages → Run workflow).
-
-После этого сайт открывается по адресу
+Сайт открывается по адресу
 `https://nygmetsiazbek-ship-it.github.io/it-forumofficial/`, а каждый push
 в `main` автоматически обновляет его.
 
