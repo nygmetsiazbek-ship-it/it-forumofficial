@@ -7,6 +7,9 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  // Relative asset URLs so the same build works locally and under the
+  // /<repo>/ subpath GitHub Pages serves a project site from.
+  base: './',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

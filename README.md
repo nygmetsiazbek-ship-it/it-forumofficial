@@ -48,3 +48,21 @@ src/
 supabase/functions/     Deno edge function (не входит в сборку фронтенда)
 docs/legacy/            неиспользуемые компоненты из исходного шаблона
 ```
+
+## Деплой
+
+В репозитории есть workflow `.github/workflows/deploy.yml`, который собирает
+приложение и публикует его на GitHub Pages.
+
+Чтобы включить (один раз):
+
+1. Settings → Pages → **Source: GitHub Actions**.
+2. Смёрджить эту ветку в `main` (или запустить workflow вручную:
+   Actions → Deploy to GitHub Pages → Run workflow).
+
+После этого сайт открывается по адресу
+`https://nygmetsiazbek-ship-it.github.io/it-forumofficial/`, а каждый push
+в `main` автоматически обновляет его.
+
+`base: './'` в `vite.config.ts` делает пути к ассетам относительными, поэтому
+одна и та же сборка работает и локально, и на подпути GitHub Pages.
